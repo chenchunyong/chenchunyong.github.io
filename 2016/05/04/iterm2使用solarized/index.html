@@ -95,7 +95,7 @@
 <meta property="og:image" content="http://yoursite.com/images/vim/效果图.png">
 <meta property="og:image" content="http://yoursite.com/images/vim/iterm2text设置.png">
 <meta property="og:image" content="http://yoursite.com/images/vim/iterm2color设置.png">
-<meta property="og:updated_time" content="2016-05-04T08:39:07.000Z">
+<meta property="og:updated_time" content="2016-05-14T01:52:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iterm2使用solarized配色">
 <meta name="twitter:description" content="iterm2使用solarized配色 采用iterm2、terminal搭配solarized 配色方案，可以配置出界面清新的开发环境。
@@ -212,6 +212,16 @@
           </a>
         </li>
       
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-pencil fa-fw"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
 
       
     </ul>
@@ -290,6 +300,13 @@
 
           
             
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/05/04/iterm2使用solarized/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/05/04/iterm2使用solarized/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -314,7 +331,7 @@
 <h2 id="配置步骤"><a href="#配置步骤" class="headerlink" title="配置步骤"></a>配置步骤</h2><h4 id="1-下载iterm2"><a href="#1-下载iterm2" class="headerlink" title="1. 下载iterm2"></a>1. 下载<a href="http://www.iterm2.com/downloads.html" target="_blank" rel="external">iterm2</a></h4><p>   下载并打开iterm2。</p>
 <h4 id="2-安装oh-my-zsh，并设置主题主题为agnoster"><a href="#2-安装oh-my-zsh，并设置主题主题为agnoster" class="headerlink" title="2. 安装oh-my-zsh，并设置主题主题为agnoster"></a>2. 安装oh-my-zsh，并设置主题主题为<code>agnoster</code></h4><pre><code><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ curl -L https://raw.github.com/</span><br><span class="line">  robbyrussell/oh-my-zsh/master/tools/install.sh | sh</span><br></pre></td></tr></table></figure>
 </code></pre><p>   编辑<code>~/.zshrc</code>，找到ZSH_THEME，设置为<code>agnoster</code>主题。</p>
-<h4 id="3-安装powerline字体"><a href="#3-安装powerline字体" class="headerlink" title="3. 安装powerline字体"></a>3. 安装powerline字体</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/powerline/powerline</span><br><span class="line">    &amp;&amp; cd powerline</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure>
+<h4 id="3-安装powerline字体"><a href="#3-安装powerline字体" class="headerlink" title="3. 安装powerline字体"></a>3. 安装powerline字体</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https://github.com/powerline/fonts.git</span><br><span class="line">    &amp;&amp; cd fonts</span><br><span class="line">$ ./install.sh</span><br></pre></td></tr></table></figure>
 </code></pre><h4 id="4-安装solarized字体"><a href="#4-安装solarized字体" class="headerlink" title="4. 安装solarized字体"></a>4. 安装solarized字体</h4><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git clone http://github.com/altercation/solarized.git</span><br></pre></td></tr></table></figure>
 </code></pre><p> 进入下载的<code>solarized/iterm2-colors-solarized</code>目录，双击<code>Solarized Dark.itermcolors</code> 和 <code>Solarized Light.itermcolors</code> 两个文件就可以把配置文件导入到 iterm2里。</p>
 <h4 id="5-设置iterm2-Color、Text"><a href="#5-设置iterm2-Color、Text" class="headerlink" title="5. 设置iterm2 Color、Text"></a>5. 设置iterm2 Color、Text</h4><ol>
@@ -323,6 +340,7 @@
 <li><p>在iterm2 Profile设置中，Color 选择导入<code>Solarized Dark</code>。<br>  <img src="/images/vim/iterm2color设置.png" alt=""></p>
 </li>
 </ol>
+<h4 id="6-iterm2其他主题"><a href="#6-iterm2其他主题" class="headerlink" title="6. iterm2其他主题"></a>6. iterm2其他主题</h4><p>参考:<a href="http://github.com/mbadolato/iTerm2-Color-Schemes" target="_blank" rel="external">iterm2</a></p>
 <h2 id="结束"><a href="#结束" class="headerlink" title="结束"></a>结束</h2><p> 通过上述简单的配置,即可搭建一个漂亮的界面了。</p>
 
       
@@ -386,6 +404,10 @@
 
           
   <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/05/04/iterm2使用solarized/"
+           data-title="iterm2使用solarized配色" data-url="http://yoursite.com/2016/05/04/iterm2使用solarized/">
+      </div>
     
   </div>
 
@@ -504,7 +526,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iterm2使用solarized配色"><span class="nav-number">1.</span> <span class="nav-text">iterm2使用solarized配色</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置步骤"><span class="nav-number">1.1.</span> <span class="nav-text">配置步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载iterm2"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1. 下载iterm2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装oh-my-zsh，并设置主题主题为agnoster"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2. 安装oh-my-zsh，并设置主题主题为agnoster</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装powerline字体"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3. 安装powerline字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-安装solarized字体"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4. 安装solarized字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-设置iterm2-Color、Text"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">5. 设置iterm2 Color、Text</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">1.2.</span> <span class="nav-text">结束</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iterm2使用solarized配色"><span class="nav-number">1.</span> <span class="nav-text">iterm2使用solarized配色</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#配置步骤"><span class="nav-number">1.1.</span> <span class="nav-text">配置步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-下载iterm2"><span class="nav-number">1.1.0.1.</span> <span class="nav-text">1. 下载iterm2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-安装oh-my-zsh，并设置主题主题为agnoster"><span class="nav-number">1.1.0.2.</span> <span class="nav-text">2. 安装oh-my-zsh，并设置主题主题为agnoster</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-安装powerline字体"><span class="nav-number">1.1.0.3.</span> <span class="nav-text">3. 安装powerline字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-安装solarized字体"><span class="nav-number">1.1.0.4.</span> <span class="nav-text">4. 安装solarized字体</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-设置iterm2-Color、Text"><span class="nav-number">1.1.0.5.</span> <span class="nav-text">5. 设置iterm2 Color、Text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-iterm2其他主题"><span class="nav-number">1.1.0.6.</span> <span class="nav-text">6. iterm2其他主题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结束"><span class="nav-number">1.2.</span> <span class="nav-text">结束</span></a></li></ol></li></ol></div>
             
           </div>
         </section>
@@ -625,9 +647,28 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"windavid"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
   
+    
+  
+
+
 
 
 
