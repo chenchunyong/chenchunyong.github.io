@@ -84,58 +84,22 @@
 
 
 
-<meta name="description" content="记录shell常用快捷键
-⌃ + u：清空当前行
-⌃ + a：移动到行首
-⌃ + e：移动到行尾
-⌃ + f：向前移动
-⌃ + b：向后移动
-⌃ + p：上一条命令
-⌃ + n：下一条命令
-⌃ + r：搜索历史命令
-⌃ + y：召回最近用命令删除的文字
-⌃ + h：删除光标之前的字符
-⌃ + d：删除光标所指的字符
-⌃ + w：删除光标之前的单词
-⌃ + k：删除从光标到行尾的内容
-⌃ + t：交">
+<meta name="description" content="Linux 文件系统磁盘格式化每种操作系统所配置的文件属性/权限并不相同，为了存放所需数据，因此需要将分隔槽进行格式化，以成为操作系统能够使利用的文件系统格式。
+文件系统linux文件除了实际数据外，还有很多额外的属性，例如Linux文件权限（rwx）与文件属性(拥有者，群组，时间参数等)。文件操作系统通常将这两部分数据分别放在不同的区块。权限与属性放在inode中，数据则放在data block">
 <meta property="og:type" content="article">
-<meta property="og:title" content="shell常用快捷键">
-<meta property="og:url" content="http://yoursite.com/2016/06/14/shell常用快捷键/index.html">
+<meta property="og:title" content="Linux 文件系统">
+<meta property="og:url" content="http://yoursite.com/2016/11/26/linux文件系统/index.html">
 <meta property="og:site_name" content="陈春勇的博客">
-<meta property="og:description" content="记录shell常用快捷键
-⌃ + u：清空当前行
-⌃ + a：移动到行首
-⌃ + e：移动到行尾
-⌃ + f：向前移动
-⌃ + b：向后移动
-⌃ + p：上一条命令
-⌃ + n：下一条命令
-⌃ + r：搜索历史命令
-⌃ + y：召回最近用命令删除的文字
-⌃ + h：删除光标之前的字符
-⌃ + d：删除光标所指的字符
-⌃ + w：删除光标之前的单词
-⌃ + k：删除从光标到行尾的内容
-⌃ + t：交">
-<meta property="og:updated_time" content="2016-11-19T13:52:36.000Z">
+<meta property="og:description" content="Linux 文件系统磁盘格式化每种操作系统所配置的文件属性/权限并不相同，为了存放所需数据，因此需要将分隔槽进行格式化，以成为操作系统能够使利用的文件系统格式。
+文件系统linux文件除了实际数据外，还有很多额外的属性，例如Linux文件权限（rwx）与文件属性(拥有者，群组，时间参数等)。文件操作系统通常将这两部分数据分别放在不同的区块。权限与属性放在inode中，数据则放在data block">
+<meta property="og:image" content="http://yoursite.com/images/inode/inode.jpg">
+<meta property="og:image" content="http://yoursite.com/images/inode/inode5.png">
+<meta property="og:updated_time" content="2016-11-26T02:57:26.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="shell常用快捷键">
-<meta name="twitter:description" content="记录shell常用快捷键
-⌃ + u：清空当前行
-⌃ + a：移动到行首
-⌃ + e：移动到行尾
-⌃ + f：向前移动
-⌃ + b：向后移动
-⌃ + p：上一条命令
-⌃ + n：下一条命令
-⌃ + r：搜索历史命令
-⌃ + y：召回最近用命令删除的文字
-⌃ + h：删除光标之前的字符
-⌃ + d：删除光标所指的字符
-⌃ + w：删除光标之前的单词
-⌃ + k：删除从光标到行尾的内容
-⌃ + t：交">
+<meta name="twitter:title" content="Linux 文件系统">
+<meta name="twitter:description" content="Linux 文件系统磁盘格式化每种操作系统所配置的文件属性/权限并不相同，为了存放所需数据，因此需要将分隔槽进行格式化，以成为操作系统能够使利用的文件系统格式。
+文件系统linux文件除了实际数据外，还有很多额外的属性，例如Linux文件权限（rwx）与文件属性(拥有者，群组，时间参数等)。文件操作系统通常将这两部分数据分别放在不同的区块。权限与属性放在inode中，数据则放在data block">
+<meta name="twitter:image" content="http://yoursite.com/images/inode/inode.jpg">
 
 
 
@@ -163,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/06/14/shell常用快捷键/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/26/linux文件系统/"/>
 
 
 
 
 
-  <title> shell常用快捷键 | 陈春勇的博客 </title>
+  <title> Linux 文件系统 | 陈春勇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -300,7 +264,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/06/14/shell常用快捷键/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/26/linux文件系统/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="陈春勇">
@@ -324,7 +288,7 @@
             
             
               
-                shell常用快捷键
+                Linux 文件系统
               
             
           </h1>
@@ -337,8 +301,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-06-14T10:36:38+08:00">
-                2016-06-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T10:55:14+08:00">
+                2016-11-26
               </time>
             
 
@@ -371,8 +335,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/06/14/shell常用快捷键/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/06/14/shell常用快捷键/" itemprop="commentCount"></span>
+                <a href="/2016/11/26/linux文件系统/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/26/linux文件系统/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -398,22 +362,89 @@
       
 
       
-        <h1 id="记录shell常用快捷键"><a href="#记录shell常用快捷键" class="headerlink" title="记录shell常用快捷键"></a>记录shell常用快捷键</h1><ul>
-<li>⌃ + u：清空当前行</li>
-<li>⌃ + a：移动到行首</li>
-<li>⌃ + e：移动到行尾</li>
-<li>⌃ + f：向前移动</li>
-<li>⌃ + b：向后移动</li>
-<li>⌃ + p：上一条命令</li>
-<li>⌃ + n：下一条命令</li>
-<li>⌃ + r：搜索历史命令</li>
-<li>⌃ + y：召回最近用命令删除的文字</li>
-<li>⌃ + h：删除光标之前的字符</li>
-<li>⌃ + d：删除光标所指的字符</li>
-<li>⌃ + w：删除光标之前的单词</li>
-<li>⌃ + k：删除从光标到行尾的内容</li>
-<li>⌃ + t：交换光标和之前的字符</li>
+        <h1 id="Linux-文件系统"><a href="#Linux-文件系统" class="headerlink" title="Linux 文件系统"></a>Linux 文件系统</h1><h2 id="磁盘格式化"><a href="#磁盘格式化" class="headerlink" title="磁盘格式化"></a>磁盘格式化</h2><p>每种操作系统所配置的文件属性/权限并不相同，为了存放所需数据，因此需要将分隔槽进行格式化，以成为操作系统能够使利用的文件系统格式。</p>
+<h2 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h2><p>linux文件除了实际数据外，还有很多额外的属性，例如Linux文件权限（rwx）与文件属性(拥有者，群组，时间参数等)。文件操作系统通常将这两部分数据分别放在不同的区块。权限与属性放在inode中，数据则放在data block中。另外还有一个super block会记录整个文件系统信息，包括inode与block的总量、使用量、剩余量。</p>
+<ul>
+<li><strong>superblock</strong>：记录此 filesystem 的整体信息，包括inode/block的总量、使用量、剩余量， 以及文件系统的格式与相关信息等</li>
+<li><strong>inode</strong>：记录文件的属性，一个文件占用一个inode，同时记录此文件的数据所在的 block 号码</li>
+<li><strong>block</strong>：实际记录文件的内容，若文件太大时，会占用多个 block </li>
 </ul>
+<h2 id="inode与block的关系"><a href="#inode与block的关系" class="headerlink" title="inode与block的关系"></a>inode与block的关系</h2><p>inode与block中都有编号，每个文件都会占用一个inode，inode则有文件数据放置的block号码。因此我们知道一个文件的inode,那么自然知道文件数据放置的block号码，当然也能够读出文件的数据。（文件索引系统）</p>
+<table>
+<thead>
+<tr>
+<th>inode number</th>
+<th style="text-align:center">block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td style="text-align:center">4,7,8</td>
+</tr>
+</tbody>
+</table>
+<p>如下图所示，文件系统先格式化出 inode 与 block 的区块，假设某一个文件的属性与权限数据是放置到 inode 4 号(下图较小方格内)，而这个 inode 记录了文件数据的实际放置点为 2, 7, 13, 15 这四个 block 号码，此时我们的操作系统就能够据此来排列磁盘的阅读顺序，可以一口气将四个 block 内容读出来！ 那么数据的读取就如同下图中的箭头所指定的模样了。</p>
+<p><img src="/images/inode/inode.jpg" alt="image"></p>
+<h2 id="inode-table"><a href="#inode-table" class="headerlink" title="inode table"></a>inode table</h2><p>inode 的内容在记录文件的属性以及该文件实际数据是放置在哪几号 block 内！ 基本上，inode 记录的文件数据至少有底下这些</p>
+<ul>
+<li>该文件的存取模式(read/write/excute)</li>
+<li>该文件的拥有者与群组(owner/group)</li>
+<li>该文件的容量</li>
+<li>该文件创建或状态改变的时间(ctime)</li>
+<li>最近一次的读取时间(atime)</li>
+<li>最近修改的时间(mtime)</li>
+<li>定义文件特性的旗标(flag)</li>
+<li>该文件真正内容的指向 (pointer)</li>
+</ul>
+<p>inode 的数量与大小也是在格式化时就已经固定了，除此之外 inode 还有些什么特色呢？</p>
+<ul>
+<li>每个 inode 大小均固定为 128 bytes</li>
+<li>每个文件都仅会占用一个 inode 而已</li>
+</ul>
+<h2 id="文件系统与目录关系"><a href="#文件系统与目录关系" class="headerlink" title="文件系统与目录关系"></a>文件系统与目录关系</h2><p>每个文件(不管是一般文件还是目录文件)都会占用一个 inode ， 且可依据文件内容的大小来分配多个 block 给该文件使用。而文件夹内容在记录文件名， 一般文件才是实际记录数据内容的地方。</p>
+<p>当文件系统新建一个文件夹时，会给文件夹分配一个inode与若干个block，其中inode记录文件夹的权限与属性，并记录存储文件的block；而block则记录文件夹下的文件名以及该文件所占有的inode号码。</p>
+<table>
+<thead>
+<tr>
+<th>inode number</th>
+<th style="text-align:center">文件名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>456754</td>
+<td style="text-align:center">text.sh</td>
+</tr>
+<tr>
+<td>856321</td>
+<td style="text-align:center">text1.sh</td>
+</tr>
+<tr>
+<td>7837265</td>
+<td style="text-align:center">text2</td>
+</tr>
+</tbody>
+</table>
+<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><p>因此当我们要读取某个文件时，就务必会经过目录的 inode 与 block ，然后才能够找到那个待读取文件的 inode 号码， 最终才会读到正确的文件的 block 内的数据。</p>
+<h2 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h2><p>当新建一个文件或目录时，我们的文件系统是如何处理的？</p>
+<ol>
+<li>先确定用户对于欲新增文件的目录是否具有 w 与 x2. 3. 4. </li>
+<li>的权限，若有的话才能新增</li>
+<li>根据 inode bitmap 找到没有使用的 inode号码，并将新文件的权限/属性写入</li>
+<li>根据 block bitmap 找到没有使用中的 block 号码，并将实际的数据写入 block 中，且升级 inode 的 block 指向数据</li>
+<li>将刚刚写入的 inode 与 block 数据同步升级 inode bitmap 与 block bitmap，并升级 superblock 的内容。</li>
+</ol>
+<h3 id="数据不一致情况"><a href="#数据不一致情况" class="headerlink" title="数据不一致情况"></a>数据不一致情况</h3><p>在一般正常的情况下，上述的新增动作当然可以顺利的完成。但是如果有个万一怎么办？ 例如你的文件在写入文件系统时，因为不知名原因导致系统中断(例如突然的停电啊、 系统核心发生错误啊～等等的怪事发生时)，所以写入的数据仅有 inode table 及 data block 而已， 最后一个同步升级中介数据的步骤并没有做完，此时就会发生 metadata 的内容与实际数据存放区产生不一致 (Inconsistent) 的情况了</p>
+<h3 id="日志式文件系统"><a href="#日志式文件系统" class="headerlink" title="日志式文件系统"></a>日志式文件系统</h3><p>为了避免上述提到的文件系统不一致的情况发生，因此我们的前辈们想到一个方式， 如果在我们的 filesystem 当中规划出一个区块，该区块专门在记录写入或修订文件时的步骤， 那不就可以简化一致性检查的步骤了？也就是说：</p>
+<ol>
+<li><strong>预备</strong>：当系统要写入一个文件时，会先在日志记录区块中纪录某个文件准备要写入的信息</li>
+<li><strong>实际写入</strong>：开始写入文件的权限与数据；开始升级 metadata 的数据</li>
+<li><strong>结束</strong>：完成数据与 metadata 的升级后，在日志记录区块当中完成该文件的纪录</li>
+</ol>
+<p>在这样的程序当中，万一数据的纪录过程当中发生了问题，那么我们的系统只要去检查日志记录区块， 就可以知道哪个文件发生了问题，针对该问题来做一致性的检查即可，而不必针对整块 filesystem 去检查， 这样就可以达到快速修复 filesystem 的能力了！这就是日志式文件最基础的功能啰～</p>
+<h3 id="VFS"><a href="#VFS" class="headerlink" title="VFS"></a>VFS</h3><p>文件系统上还有一层VFS（Visual File System）抽象层。文件系统拥有各种各样的函数，而VFS统一管理这些接口。此外，VFS拥有页面缓存机制。不论使用什么文件系统，无论从哪个磁盘中读取，必定会通过同样的机制进行缓存。</p>
+<p><img src="/images/inode/inode5.png" alt="image"></p>
 
       
     </div>
@@ -446,8 +477,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/05/26/sublime-必备插件及提供一款优美主题/" rel="next" title="sublime 必备插件及提供一款优美主题">
-                <i class="fa fa-chevron-left"></i> sublime 必备插件及提供一款优美主题
+              <a href="/2016/11/26/linux页面缓存/" rel="next" title="Linux页面缓存">
+                <i class="fa fa-chevron-left"></i> Linux页面缓存
               </a>
             
           </div>
@@ -455,10 +486,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/26/linux页面缓存/" rel="prev" title="Linux页面缓存">
-                Linux页面缓存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -484,8 +511,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/06/14/shell常用快捷键/"
-           data-title="shell常用快捷键" data-url="http://yoursite.com/2016/06/14/shell常用快捷键/">
+      <div class="ds-thread" data-thread-key="2016/11/26/linux文件系统/"
+           data-title="Linux 文件系统" data-url="http://yoursite.com/2016/11/26/linux文件系统/">
       </div>
     
   </div>
@@ -611,7 +638,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#记录shell常用快捷键"><span class="nav-number">1.</span> <span class="nav-text">记录shell常用快捷键</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-文件系统"><span class="nav-number">1.</span> <span class="nav-text">Linux 文件系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#磁盘格式化"><span class="nav-number">1.1.</span> <span class="nav-text">磁盘格式化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件系统"><span class="nav-number">1.2.</span> <span class="nav-text">文件系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inode与block的关系"><span class="nav-number">1.3.</span> <span class="nav-text">inode与block的关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#inode-table"><span class="nav-number">1.4.</span> <span class="nav-text">inode table</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件系统与目录关系"><span class="nav-number">1.5.</span> <span class="nav-text">文件系统与目录关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读取"><span class="nav-number">1.6.</span> <span class="nav-text">文件读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件写入"><span class="nav-number">1.7.</span> <span class="nav-text">文件写入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数据不一致情况"><span class="nav-number">1.7.1.</span> <span class="nav-text">数据不一致情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日志式文件系统"><span class="nav-number">1.7.2.</span> <span class="nav-text">日志式文件系统</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VFS"><span class="nav-number">1.7.3.</span> <span class="nav-text">VFS</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
