@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -84,16 +84,35 @@
 
 
 
-<meta name="description" content="Hexo 使用攻略">
+<meta name="description" content="linux页面缓存虚拟内存机制虚拟内存的机制是将逻辑的线性地址映射为物理线性地址。如下图所示：
+具体流程如下：
+虚拟内存好处 操作系统在分配内存的时候，并不想上图所示，那样一个字节一个字节地访问，而是分配好适当的大小（4KB）并传递给进程，这样的一个内存块称为“页面”，进程要求分配内存时，操作系统就分配足够的页面（至少一个）并将其传递给进程。
+ 那么虚拟内存的好处是：
+
+具体让进程更容易地访问内存">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 使用攻略">
-<meta property="og:url" content="http://yoursite.com/2016/04/27/Hexo-使用攻略/index.html">
+<meta property="og:title" content="linux页面缓存">
+<meta property="og:url" content="http://yoursite.com/2016/11/26/linux页面缓存/index.html">
 <meta property="og:site_name" content="陈春勇的博客">
-<meta property="og:description" content="Hexo 使用攻略">
-<meta property="og:updated_time" content="2016-05-14T07:52:54.000Z">
+<meta property="og:description" content="linux页面缓存虚拟内存机制虚拟内存的机制是将逻辑的线性地址映射为物理线性地址。如下图所示：
+具体流程如下：
+虚拟内存好处 操作系统在分配内存的时候，并不想上图所示，那样一个字节一个字节地访问，而是分配好适当的大小（4KB）并传递给进程，这样的一个内存块称为“页面”，进程要求分配内存时，操作系统就分配足够的页面（至少一个）并将其传递给进程。
+ 那么虚拟内存的好处是：
+
+具体让进程更容易地访问内存">
+<meta property="og:image" content="http://yoursite.com/images/inode/inode1.jpg">
+<meta property="og:image" content="http://yoursite.com/images/inode/inode2.jpg">
+<meta property="og:image" content="http://yoursite.com/images/inode/inode3.jpg">
+<meta property="og:updated_time" content="2016-11-26T02:51:22.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo 使用攻略">
-<meta name="twitter:description" content="Hexo 使用攻略">
+<meta name="twitter:title" content="linux页面缓存">
+<meta name="twitter:description" content="linux页面缓存虚拟内存机制虚拟内存的机制是将逻辑的线性地址映射为物理线性地址。如下图所示：
+具体流程如下：
+虚拟内存好处 操作系统在分配内存的时候，并不想上图所示，那样一个字节一个字节地访问，而是分配好适当的大小（4KB）并传递给进程，这样的一个内存块称为“页面”，进程要求分配内存时，操作系统就分配足够的页面（至少一个）并将其传递给进程。
+ 那么虚拟内存的好处是：
+
+具体让进程更容易地访问内存">
+<meta name="twitter:image" content="http://yoursite.com/images/inode/inode1.jpg">
 
 
 
@@ -121,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/04/27/Hexo-使用攻略/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/26/linux页面缓存/"/>
 
 
 
 
 
-  <title> Hexo 使用攻略 | 陈春勇的博客 </title>
+  <title> linux页面缓存 | 陈春勇的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +277,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/04/27/Hexo-使用攻略/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/26/linux页面缓存/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="陈春勇">
@@ -282,7 +301,7 @@
             
             
               
-                Hexo 使用攻略
+                linux页面缓存
               
             
           </h1>
@@ -295,8 +314,8 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-04-27T15:24:23+08:00">
-                2016-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-26T10:47:39+08:00">
+                2016-11-26
               </time>
             
 
@@ -314,8 +333,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Hexo/" itemprop="url" rel="index">
-                    <span itemprop="name">Hexo</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -329,8 +348,8 @@
             
               <span class="post-comments-count">
                 <span class="post-meta-divider">|</span>
-                <a href="/2016/04/27/Hexo-使用攻略/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/04/27/Hexo-使用攻略/" itemprop="commentCount"></span>
+                <a href="/2016/11/26/linux页面缓存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/26/linux页面缓存/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -356,7 +375,22 @@
       
 
       
-        <h1 id="Hexo-使用攻略"><a href="#Hexo-使用攻略" class="headerlink" title="Hexo 使用攻略"></a>Hexo 使用攻略</h1>
+        <h1 id="linux页面缓存"><a href="#linux页面缓存" class="headerlink" title="linux页面缓存"></a>linux页面缓存</h1><h2 id="虚拟内存机制"><a href="#虚拟内存机制" class="headerlink" title="虚拟内存机制"></a>虚拟内存机制</h2><p>虚拟内存的机制是将逻辑的线性地址映射为物理线性地址。如下图所示：<br><img src="/images/inode/inode1.jpg" alt="image"></p>
+<p>具体流程如下：<br><img src="/images/inode/inode2.jpg" alt="image"></p>
+<h3 id="虚拟内存好处"><a href="#虚拟内存好处" class="headerlink" title="虚拟内存好处"></a>虚拟内存好处</h3><p> 操作系统在分配内存的时候，并不想上图所示，那样一个字节一个字节地访问，而是分配好适当的大小（4KB）并传递给进程，这样的一个内存块称为“页面”，进程要求分配内存时，操作系统就分配足够的页面（至少一个）并将其传递给进程。</p>
+<p> 那么虚拟内存的好处是：</p>
+<ul>
+<li>具体让进程更容易地访问内存等好处</li>
+<li>操作系统在内核将内存抽象化</li>
+<li>操作系统以页面为单位分配物理内存并管理</li>
+<li>交换文件功能，当物理内存不足时，将次级存储（主要是磁盘）看成内存，以从表面上解决内存不足</li>
+</ul>
+<h2 id="Linux-页面缓存原理"><a href="#Linux-页面缓存原理" class="headerlink" title="Linux 页面缓存原理"></a>Linux 页面缓存原理</h2><p> 操作系统能够让已分配的页面一直维持在这一状态。</p>
+<p><img src="/images/inode/inode3.jpg" alt="image"></p>
+<p> 进程1访问磁盘数据时， 操作系统首先从磁盘中读取4KB的块，读出的内容存放在内存中。然后操作系统将该内存的地址（转化为虚拟地址后）告诉进程，然后由进程访问内存。进程1读取完数据后，虽然读出的数据已全部处理完毕而不再需要这块内存，但不会把3的内存释放掉，而是保留下来。下次其他进程（进程2）想访问同一块磁盘的数据时，就可以直接访问留下来的页面了。</p>
+<h3 id="页面缓存效果"><a href="#页面缓存效果" class="headerlink" title="页面缓存效果"></a>页面缓存效果</h3><p>linux每次从磁盘读取数据时，一定会访问一次内存， 而且一定会缓存下来。因此，第二次访问速度就更快了。其他现在操作系统也拥有同样的页面缓存机制（Windows机器大家经常重启，但实际上不重启，读取的数据更快）。</p>
+<h4 id="LRU"><a href="#LRU" class="headerlink" title="LRU"></a>LRU</h4><p>所有从磁盘中读取的数据都会被操作系统缓存，要是内存不够用怎么办？Linux页面缓存管理采用LRU（淘汰最久不适用的文件）</p>
+
       
     </div>
 
@@ -379,7 +413,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -388,15 +422,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/06/14/shell常用快捷键/" rel="next" title="shell常用快捷键">
+                <i class="fa fa-chevron-left"></i> shell常用快捷键
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/05/04/iterm2使用solarized/" rel="prev" title="iterm2使用solarized配色">
-                iterm2使用solarized配色 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -422,8 +456,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/04/27/Hexo-使用攻略/"
-           data-title="Hexo 使用攻略" data-url="http://yoursite.com/2016/04/27/Hexo-使用攻略/">
+      <div class="ds-thread" data-thread-key="2016/11/26/linux页面缓存/"
+           data-title="linux页面缓存" data-url="http://yoursite.com/2016/11/26/linux页面缓存/">
       </div>
     
   </div>
@@ -549,7 +583,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo-使用攻略"><span class="nav-number">1.</span> <span class="nav-text">Hexo 使用攻略</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#linux页面缓存"><span class="nav-number">1.</span> <span class="nav-text">linux页面缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#虚拟内存机制"><span class="nav-number">1.1.</span> <span class="nav-text">虚拟内存机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#虚拟内存好处"><span class="nav-number">1.1.1.</span> <span class="nav-text">虚拟内存好处</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Linux-页面缓存原理"><span class="nav-number">1.2.</span> <span class="nav-text">Linux 页面缓存原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#页面缓存效果"><span class="nav-number">1.2.1.</span> <span class="nav-text">页面缓存效果</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#LRU"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">LRU</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
