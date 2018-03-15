@@ -1,0 +1,774 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="shell," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="bash获取参数参数解析在shell script获取参数前，需要知道几个特殊变量。
+
+$0      执行命令本身路径，如 ~/.test.sh.
+$1~$9   1~9参数
+$#      参数个数，不包括$0
+$@      所有参数的列表，数组类型。不包括$0
+$*      与$@一样返回所有参数，String类型。不包括$0
+
+获取shell script一般有三种方式。
+
+手工方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="bash获取参数">
+<meta property="og:url" content="http://yoursite.com/2016/11/30/bash获取参数/index.html">
+<meta property="og:site_name" content="陈春勇的博客">
+<meta property="og:description" content="bash获取参数参数解析在shell script获取参数前，需要知道几个特殊变量。
+
+$0      执行命令本身路径，如 ~/.test.sh.
+$1~$9   1~9参数
+$#      参数个数，不包括$0
+$@      所有参数的列表，数组类型。不包括$0
+$*      与$@一样返回所有参数，String类型。不包括$0
+
+获取shell script一般有三种方式。
+
+手工方式">
+<meta property="og:updated_time" content="2017-05-23T02:45:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="bash获取参数">
+<meta name="twitter:description" content="bash获取参数参数解析在shell script获取参数前，需要知道几个特殊变量。
+
+$0      执行命令本身路径，如 ~/.test.sh.
+$1~$9   1~9参数
+$#      参数个数，不包括$0
+$@      所有参数的列表，数组类型。不包括$0
+$*      与$@一样返回所有参数，String类型。不包括$0
+
+获取shell script一般有三种方式。
+
+手工方式">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/30/bash获取参数/"/>
+
+
+
+
+
+  <title> bash获取参数 | 陈春勇的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陈春勇的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">用行动说话</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/11/30/bash获取参数/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="陈春勇">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="陈春勇的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="陈春勇的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                bash获取参数
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-11-30T14:04:16+08:00">
+                2016-11-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2016/11/30/bash获取参数/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/30/bash获取参数/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="bash获取参数"><a href="#bash获取参数" class="headerlink" title="bash获取参数"></a>bash获取参数</h1><h2 id="参数解析"><a href="#参数解析" class="headerlink" title="参数解析"></a>参数解析</h2><p>在shell script获取参数前，需要知道几个特殊变量。</p>
+<ul>
+<li>$0      执行命令本身路径，如 ~/.test.sh.</li>
+<li>$1~$9   1~9参数</li>
+<li>$#      参数个数，不包括$0</li>
+<li>$@      所有参数的列表，数组类型。不包括$0</li>
+<li>$*      与$@一样返回所有参数，String类型。不包括$0</li>
+</ul>
+<p>获取shell script一般有三种方式。</p>
+<ul>
+<li>手工方式</li>
+<li>getopts</li>
+<li>getopt</li>
+</ul>
+<h2 id="手工方式"><a href="#手工方式" class="headerlink" title="手工方式"></a>手工方式</h2><p>直接判断变量的值。如以下代码:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 遍历参数</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">  <span class="string">"test"</span>|<span class="string">"t"</span>)</span><br><span class="line">    <span class="built_in">test</span>Handler <span class="variable">$@</span></span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"    error: unknown option \`<span class="variable">$1</span>\`\n"</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+<h2 id="getopt"><a href="#getopt" class="headerlink" title="getopt"></a>getopt</h2><p>getopts 是bash内置的获取参数的方法，不限linux/unix平台使用，缺点是只支持短参数。使用方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># getopts:后端加':'表示忽略系统错误，自定义错误消息</span></span><br><span class="line"><span class="keyword">while</span> <span class="built_in">getopts</span>:<span class="string">"a:bc"</span> opt <span class="comment">#选项后面的冒号表示该选项需要参数</span></span><br><span class="line"><span class="keyword">do</span></span><br><span class="line">        <span class="keyword">case</span> <span class="variable">$opt</span> <span class="keyword">in</span></span><br><span class="line">             a)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"a's arg:<span class="variable">$OPTARG</span>"</span> <span class="comment">#a后端可带参数值，参数值为$OPTARG</span></span><br><span class="line">                ;;</span><br><span class="line">             b)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"b"</span></span><br><span class="line">                ;;</span><br><span class="line">             c)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"c"</span></span><br><span class="line">                ;;</span><br><span class="line">             ?)  <span class="comment">#当有不认识的选项的时候arg为?</span></span><br><span class="line">            <span class="built_in">echo</span> <span class="string">"unkonw argument"</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line">        <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="getopts"><a href="#getopts" class="headerlink" title="getopts"></a>getopts</h2><p>getopt是独立的可执行文件，不是内嵌在bash，不支持macOS系统。相比getopts，getopt支持长参数。官方使用方法如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span><br><span class="line"></span></span><br><span class="line"><span class="comment">#-o表示短选项，两个冒号表示该选项有一个可选参数，可选参数必须紧贴选项</span></span><br><span class="line"><span class="comment">#如-carg 而不能是-c arg</span></span><br><span class="line"><span class="comment">#--long表示长选项</span></span><br><span class="line"><span class="comment">#"$@"在上面解释过</span></span><br><span class="line"><span class="comment"># -n:出错时的信息</span></span><br><span class="line"><span class="comment"># -- ：举一个例子比较好理解：</span></span><br><span class="line"><span class="comment">#我们要创建一个名字为 "-f"的目录你会怎么办？</span></span><br><span class="line"><span class="comment"># mkdir -f #不成功，因为-f会被mkdir当作选项来解析，这时就可以使用</span></span><br><span class="line"><span class="comment"># mkdir -- -f 这样-f就不会被作为选项。</span></span><br><span class="line"></span><br><span class="line">TEMP=`getopt -o ab:c:: --long a-long,b-long:,c-long:: \</span><br><span class="line">     -n <span class="string">'example.bash'</span> -- <span class="string">"<span class="variable">$@</span>"</span>`</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [ $? != 0 ] ; <span class="keyword">then</span> <span class="built_in">echo</span> <span class="string">"Terminating..."</span> &gt;&amp;2 ; <span class="built_in">exit</span> 1 ; <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Note the quotes around `$TEMP': they are essential!</span></span><br><span class="line"><span class="comment">#set 会重新排列参数的顺序，也就是改变$1,$2...$n的值，这些值在getopt中重新排列过了</span></span><br><span class="line"><span class="built_in">eval</span> <span class="built_in">set</span> -- <span class="string">"<span class="variable">$TEMP</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#经过getopt的处理，下面处理具体选项。</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">true</span> ; <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">                <span class="_">-a</span>|-<span class="_">-a</span>-long) <span class="built_in">echo</span> <span class="string">"Option a"</span> ; <span class="built_in">shift</span> ;;</span><br><span class="line">                -b|--b-long) <span class="built_in">echo</span> <span class="string">"Option b, argument \`<span class="variable">$2</span>'"</span> ; <span class="built_in">shift</span> 2 ;;</span><br><span class="line">                -c|--c-long)</span><br><span class="line">                        <span class="comment"># c has an optional argument. As we are in quoted mode,</span></span><br><span class="line">                        <span class="comment"># an empty parameter will be generated if its optional</span></span><br><span class="line">                        <span class="comment"># argument is not found.</span></span><br><span class="line">                        <span class="keyword">case</span> <span class="string">"<span class="variable">$2</span>"</span> <span class="keyword">in</span></span><br><span class="line">                                <span class="string">""</span>) <span class="built_in">echo</span> <span class="string">"Option c, no argument"</span>; <span class="built_in">shift</span> 2 ;;</span><br><span class="line">                                *)  <span class="built_in">echo</span> <span class="string">"Option c, argument \`<span class="variable">$2</span>'"</span> ; <span class="built_in">shift</span> 2 ;;</span><br><span class="line">                        <span class="keyword">esac</span> ;;</span><br><span class="line">                --) <span class="built_in">shift</span> ; <span class="built_in">break</span> ;;</span><br><span class="line">                *) <span class="built_in">echo</span> <span class="string">"Internal error!"</span> ; <span class="built_in">exit</span> 1 ;;</span><br><span class="line">        <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Remaining arguments:"</span></span><br><span class="line"><span class="keyword">for</span> arg <span class="keyword">do</span></span><br><span class="line">   <span class="built_in">echo</span> <span class="string">'--&gt; '</span><span class="string">"\`<span class="variable">$arg</span>'"</span> ;</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="demo"><a href="#demo" class="headerlink" title="demo"></a>demo</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># lu-cli useage</span></span><br><span class="line"><span class="function"><span class="title">usage</span></span>()&#123;</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   Usage: `basename <span class="variable">$0</span> .sh` &lt;command&gt;\n\n"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   Commands:\n"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"     test|t [options]        测试"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   Options:\n"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   -h, --help output usage information\n"</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># 初始化模板 usage</span></span><br><span class="line"><span class="function"><span class="title">testUsage</span></span>()&#123;</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   Usage: test|t [options]\n"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   测试\n"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   Options:\n"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   -h, &lt;help&gt;         output usage information"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   -a, &lt;testa&gt;        （可选）可选字段"</span></span><br><span class="line">  <span class="built_in">echo</span>  <span class="string">"   -b, &lt;testb&gt;        （必选）必选字段\n"</span></span><br><span class="line">  <span class="built_in">exit</span> 1</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 处理 Test 逻辑</span></span><br><span class="line"><span class="function"><span class="title">testHandler</span></span>()&#123;</span><br><span class="line">  <span class="comment"># 定义本地变量</span></span><br><span class="line">  <span class="built_in">local</span> <span class="built_in">help</span></span><br><span class="line">  <span class="built_in">local</span> a</span><br><span class="line">  <span class="built_in">local</span> b</span><br><span class="line">  <span class="built_in">shift</span></span><br><span class="line">  <span class="keyword">while</span> <span class="built_in">getopts</span> :ha:b: option</span><br><span class="line">  <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">case</span> <span class="variable">$option</span> <span class="keyword">in</span></span><br><span class="line">      h)</span><br><span class="line">        <span class="built_in">help</span>=<span class="string">"y"</span></span><br><span class="line">        ;;</span><br><span class="line">      a)</span><br><span class="line">        a=<span class="string">"<span class="variable">$OPTARG</span>"</span></span><br><span class="line">        ;;</span><br><span class="line">      b)</span><br><span class="line">        b=<span class="string">"<span class="variable">$OPTARG</span>"</span></span><br><span class="line">        ;;</span><br><span class="line">      \?)</span><br><span class="line">        <span class="built_in">echo</span> <span class="string">"    error: unknown option"</span></span><br><span class="line">        <span class="built_in">exit</span> 1</span><br><span class="line">        ;;</span><br><span class="line">    <span class="keyword">esac</span></span><br><span class="line">  <span class="keyword">done</span></span><br><span class="line">  <span class="keyword">if</span> [[ <span class="string">"<span class="variable">$help</span>"</span> == <span class="string">"y"</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">test</span>Usage</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  <span class="keyword">if</span> [[ -z <span class="string">"<span class="variable">$b</span>"</span> ]]; <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"    error: option \`-b testb\` argument missing\n"</span></span><br><span class="line">    <span class="built_in">exit</span> 1</span><br><span class="line">  <span class="keyword">fi</span></span><br><span class="line">  <span class="comment">#todo 处理初始化</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">"todo"</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> [[ <span class="variable">$#</span> <span class="_">-eq</span> 0 ]]; <span class="keyword">then</span></span><br><span class="line">  usage</span><br><span class="line"><span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 遍历参数</span></span><br><span class="line"><span class="keyword">case</span> <span class="string">"<span class="variable">$1</span>"</span> <span class="keyword">in</span></span><br><span class="line">  <span class="string">"test"</span>|<span class="string">"t"</span>)</span><br><span class="line">    <span class="built_in">test</span>Handler <span class="variable">$@</span></span><br><span class="line">    ;;</span><br><span class="line">  <span class="string">"-h"</span>|<span class="string">"--help"</span>)</span><br><span class="line">    usage</span><br><span class="line">    ;;</span><br><span class="line">  *)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">""</span></span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"    error: unknown option \`<span class="variable">$1</span>\`\n"</span></span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/11/26/linux文件系统/" rel="next" title="Linux 文件系统">
+                <i class="fa fa-chevron-left"></i> Linux 文件系统
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/12/12/find-与xargs命令使用/" rel="prev" title="find 与xargs命令使用">
+                find 与xargs命令使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/11/30/bash获取参数/"
+           data-title="bash获取参数" data-url="http://yoursite.com/2016/11/30/bash获取参数/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="陈春勇" />
+          <p class="site-author-name" itemprop="name">陈春勇</p>
+          <p class="site-description motion-element" itemprop="description">宽恕不会改变那个过去,却能开阔你的未来</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chenchunyong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/windavidking" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chen-feng-xie" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#bash获取参数"><span class="nav-number">1.</span> <span class="nav-text">bash获取参数</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#参数解析"><span class="nav-number">1.1.</span> <span class="nav-text">参数解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#手工方式"><span class="nav-number">1.2.</span> <span class="nav-text">手工方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getopt"><span class="nav-number">1.3.</span> <span class="nav-text">getopt</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#getopts"><span class="nav-number">1.4.</span> <span class="nav-text">getopts</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#demo"><span class="nav-number">1.5.</span> <span class="nav-text">demo</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈春勇</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"windavid"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

@@ -1,0 +1,768 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="webpack," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="webpack 常用plugin记录webpack常用plugin使用
+DefinePlugin用来定义全局变量，在webpack打包的时候会对这些变量做替换。demo:1234567891011var webpack = require(&apos;webpack&apos;);module.exports = &amp;#123;    plugins: [        new webpack.DefinePlugin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="webpack 常用plugin">
+<meta property="og:url" content="http://yoursite.com/2017/01/04/webpack-常用plugin/index.html">
+<meta property="og:site_name" content="陈春勇的博客">
+<meta property="og:description" content="webpack 常用plugin记录webpack常用plugin使用
+DefinePlugin用来定义全局变量，在webpack打包的时候会对这些变量做替换。demo:1234567891011var webpack = require(&apos;webpack&apos;);module.exports = &amp;#123;    plugins: [        new webpack.DefinePlugin">
+<meta property="og:updated_time" content="2017-05-23T02:45:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="webpack 常用plugin">
+<meta name="twitter:description" content="webpack 常用plugin记录webpack常用plugin使用
+DefinePlugin用来定义全局变量，在webpack打包的时候会对这些变量做替换。demo:1234567891011var webpack = require(&apos;webpack&apos;);module.exports = &amp;#123;    plugins: [        new webpack.DefinePlugin">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/01/04/webpack-常用plugin/"/>
+
+
+
+
+
+  <title> webpack 常用plugin | 陈春勇的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">陈春勇的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">用行动说话</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-pencil"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/01/04/webpack-常用plugin/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="陈春勇">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.png">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="陈春勇的博客">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="陈春勇的博客" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                webpack 常用plugin
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-04T11:31:06+08:00">
+                2017-01-04
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/前端/" itemprop="url" rel="index">
+                    <span itemprop="name">前端</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <a href="/2017/01/04/webpack-常用plugin/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/04/webpack-常用plugin/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="webpack-常用plugin"><a href="#webpack-常用plugin" class="headerlink" title="webpack 常用plugin"></a>webpack 常用plugin</h1><p>记录webpack常用plugin使用</p>
+<h2 id="DefinePlugin"><a href="#DefinePlugin" class="headerlink" title="DefinePlugin"></a>DefinePlugin</h2><p>用来定义全局变量，在webpack打包的时候会对这些变量做替换。<br>demo:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.DefinePlugin(&#123;</span><br><span class="line">            <span class="string">'process.env'</span>: <span class="built_in">JSON</span>.stringify(<span class="string">'DEV'</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(process.env);</span><br></pre></td></tr></table></figure></p>
+<p>编译完成后，<code>process.env</code>会被编译成DEV。 </p>
+<h2 id="ExtractTextPlugin"><a href="#ExtractTextPlugin" class="headerlink" title="ExtractTextPlugin"></a>ExtractTextPlugin</h2><p>把文件中的css样式剥离出来，单独为一个css文件。<br>demo:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> ExtractTextPlugin(<span class="string">'module.css'</span>),</span><br><span class="line">    ]</span><br><span class="line">    loaders: [&#123;</span><br><span class="line">        test: <span class="regexp">/\.css$/</span>,</span><br><span class="line">        loader: ExtractTextPlugin.extract(<span class="string">'style-loader'</span>, <span class="string">'css-loader!postcss-loader'</span>),</span><br><span class="line">  &#125;],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>把文件中的css剥离出来成单独的module.css文件。</p>
+<p><strong>NOTE</strong>:<br>一个entry生成一个文件，当多个entry的时候，可以用<code>[name]/[id]/[contenthash]</code>来生成多个文件。<br><code>id</code>: 插件实例的唯一标识，自动生成<br><code>filename</code>: 输出的filename，可以通过[name]/[id]/[contenthash]自定义filename<br><code>options.allChunks</code> 提取所有的chunk（默认只提取initial chunk）<br><code>options.disable</code> disable该插件</p>
+<p>文／齐修_qixiuss（简书作者）<br>原文链接：<a href="http://www.jianshu.com/p/1eefaeaf6874" target="_blank" rel="external">http://www.jianshu.com/p/1eefaeaf6874</a><br>著作权归作者所有，转载请联系作者获得授权，并标注“简书作者”。</p>
+<h2 id="NoErrorsPlugin"><a href="#NoErrorsPlugin" class="headerlink" title="NoErrorsPlugin"></a>NoErrorsPlugin</h2><p>跳过编译时出错的代码并记录，使编译后运行时的包不会发生错误。</p>
+<h2 id="CommonsChunkPlugin"><a href="#CommonsChunkPlugin" class="headerlink" title="CommonsChunkPlugin"></a>CommonsChunkPlugin</h2><p>提取代码中的公共模块，然后将公共模块打包到一个独立的文件中，以便在其他的入口和模块中使用。<br>demo:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry:[<span class="string">'index1.js'</span>,<span class="string">'index2.js'</span>],</span><br><span class="line">  plugins: [</span><br><span class="line">   <span class="keyword">new</span> CommonsChunkPlugin(&#123;</span><br><span class="line">      name:<span class="string">"entry"</span>,</span><br><span class="line">      filename:<span class="string">"common.js"</span>,<span class="comment">//忽略则以name为输出文件的名字，否则以此为输出文件名字</span></span><br><span class="line">      minChunks:<span class="number">2</span>,<span class="comment">// 最小引用2次</span></span><br><span class="line">   &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>把index1.js，index2.js公用的js抽取出来，打包成单独文件common.js。<br><strong>NOTE</strong>: CommonsChunkPlugin此插件存在的问题：</p>
+<ol>
+<li>如果entry只有一个,生成的common.js内容为空。</li>
+<li>编译时，每次都会重新编译，编译时间长，无法缓存编译的内容</li>
+<li>common.js是由webpack控制<br><strong>参考</strong>：<a href="http://www.jianshu.com/p/ee372e344d6d" target="_blank" rel="external">http://www.jianshu.com/p/ee372e344d6d</a></li>
+</ol>
+<h2 id="DedupePlugin"><a href="#DedupePlugin" class="headerlink" title="DedupePlugin"></a>DedupePlugin</h2><p>有些JS库有自己的依赖树，并且这些库可能有交叉的依赖，DedupePlugin可以找出他们并删除重复的依赖。</p>
+<h2 id="UglifyJsPlugin"><a href="#UglifyJsPlugin" class="headerlink" title="UglifyJsPlugin"></a>UglifyJsPlugin</h2><p>压缩js文件。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry:[<span class="string">'index1.js'</span>],</span><br><span class="line">  plugins: [</span><br><span class="line">   <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">      compress: &#123;</span><br><span class="line">        warnings: VERBOSE,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>对index1.js进行压缩。</p>
+<h2 id="OccurenceOrderPlugin"><a href="#OccurenceOrderPlugin" class="headerlink" title="OccurenceOrderPlugin"></a>OccurenceOrderPlugin</h2><p>为组件分配ID，通过这个插件webpack可以分析和优先考虑使用最多的模块，并为它们分配最小的ID。（老实说，不知道分配最小ID有什么作用）。</p>
+<h2 id="HotModuleReplacementPlugin"><a href="#HotModuleReplacementPlugin" class="headerlink" title="HotModuleReplacementPlugin"></a>HotModuleReplacementPlugin</h2><p>热更新插件，代码发生变化，自动替换到页面。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry:[<span class="string">'webpack/hot/dev-server'</span>, <span class="string">'webpack-hot-middleware/client?reload=true'</span>,<span class="string">'index1.js'</span>],</span><br><span class="line">  plugins: [</span><br><span class="line">   <span class="keyword">new</span> webpack.HotModuleReplacementPlugin(),</span><br><span class="line">  ],</span><br><span class="line">  loaders: [&#123;</span><br><span class="line">    test: <span class="regexp">/\.jsx?$/</span>,</span><br><span class="line">    loaders: [<span class="string">'react-hot'</span>],</span><br><span class="line">    exclude: <span class="string">'/node_modules/'</span>,</span><br><span class="line">  &#125;]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>express 服务配置<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> WebpackDevMiddleware = <span class="built_in">require</span>(<span class="string">'webpack-dev-middleware'</span>)</span><br><span class="line"><span class="keyword">var</span> WebpackHotMiddleware = <span class="built_in">require</span>(<span class="string">'webpack-hot-middleware'</span>)</span><br><span class="line"><span class="keyword">var</span> config = <span class="built_in">require</span>(<span class="string">'./config/webpack.dev.config'</span>)</span><br><span class="line"><span class="keyword">var</span> compiler = webpack(config)</span><br><span class="line">app = express()</span><br><span class="line">app.use(WebpackDevMiddleware(compiler, &#123;</span><br><span class="line">  publicPath: config.output.publicPath,</span><br><span class="line">  stats: &#123; colors: <span class="literal">true</span> &#125;</span><br><span class="line">&#125;))</span><br><span class="line">app.use(WebpackHotMiddleware(compiler))</span><br></pre></td></tr></table></figure></p>
+<p>如果前端框架采用外部引用react的方式，那么需要在入口index1.js增加hot replace 配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">if (module.hot) &#123;</span><br><span class="line">  require(&apos;react-hot-loader/Injection&apos;).RootInstanceProvider.injectProvider(&#123;</span><br><span class="line">    getRootInstances: () =&gt; [rootInstance],</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="HtmlWebpackPlugin"><a href="#HtmlWebpackPlugin" class="headerlink" title="HtmlWebpackPlugin"></a>HtmlWebpackPlugin</h2><p>这个插件用来简化创建服务于 webpack bundle 的 HTML 文件，尤其是对于在文件名中包含了 hash 值，而这个值在每次编译的时候都发生变化的情况。你既可以让这个插件来帮助你自动生成 HTML 文件，也可以使用 lodash 模板加载生成的 bundles，或者自己加载这些 bundles。<br>demo:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry:[<span class="string">'index1.js'</span>],</span><br><span class="line">  plugins: [</span><br><span class="line">   <span class="keyword">new</span> HtmlWebpackPlugin(&#123;</span><br><span class="line">      title: <span class="string">'My App'</span>,</span><br><span class="line">      filename: <span class="string">'index.html'</span>,</span><br><span class="line"></span><br><span class="line">    &#125;),</span><br><span class="line">  ],</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>把index1.js打包后，放到index.html中。</p>
+<h3 id="Configuration"><a href="#Configuration" class="headerlink" title="Configuration"></a>Configuration</h3><ul>
+<li>title: 用来生成页面的 title 元素</li>
+<li>filename: 输出的 HTML 文件名，默认是 index.html, 也可以直接配置带有子目录。</li>
+<li>template: 模板文件路径，支持加载器，比如 html!./index.html</li>
+<li>inject: true | ‘head’ | ‘body’ | false  ,注入所有的资源到特定的 template 或者 templateContent 中，如果设置为 true 或者 body，所有的 javascript 资源将被放置到 body 元素的底部，’head’ 将放置到 head 元素中。</li>
+<li>favicon: 添加特定的 favicon 路径到输出的 HTML 文件中。</li>
+<li>minify: {} | false , 传递 html-minifier 选项给 minify 输出</li>
+<li>hash: true | false, 如果为 true, 将添加一个唯一的 webpack 编译 hash 到所有包含的脚本和 CSS 文件，对于解除 cache 很有用。</li>
+<li>cache: true | false，如果为 true, 这是默认值，仅仅在文件修改之后才会发布文件。</li>
+<li>showErrors: true | false, 如果为 true, 这是默认值，错误信息会写入到 HTML 页面中</li>
+<li>chunks: 允许只添加某些块 (比如，仅仅 unit test 块)</li>
+<li>chunksSortMode: 允许控制块在添加到页面之前的排序方式，支持的值：’none’ | ‘default’ | {function}-default:’auto’</li>
+<li>excludeChunks: 允许跳过某些块，(比如，跳过单元测试的块) </li>
+</ul>
+<h2 id="assets-webpack-plugin"><a href="#assets-webpack-plugin" class="headerlink" title="assets-webpack-plugin"></a>assets-webpack-plugin</h2><p>通过webpack的 assets-webpack-plugin 插件生成一个记录了版本号的文件。其中一个重要功能是可以根据<code>asset.json</code>实现在线发现，例如可以把<code>asset.json</code>存在数据中，web服务器可以获取最新的<code>asset.json</code>实现实时发布。<br>demo:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>)</span><br><span class="line"><span class="keyword">var</span> AssetsPlugin = <span class="built_in">require</span>(<span class="string">'assets-webpack-plugin'</span>)</span><br><span class="line"><span class="keyword">var</span> assetsPluginInstance = <span class="keyword">new</span> AssetsPlugin()</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: &#123;</span><br><span class="line">        one: [<span class="string">'src/one.js'</span>],</span><br><span class="line">        two: [<span class="string">'src/two.js'</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    output: &#123;</span><br><span class="line">        path: path.join(__dirname, <span class="string">"public"</span>, <span class="string">"js"</span>),</span><br><span class="line">        filename: <span class="string">"[name]-bundle-[hash].js"</span>,</span><br><span class="line">        publicPath: <span class="string">"/js/"</span></span><br><span class="line">    &#125;,</span><br><span class="line">    plugins: [assetsPluginInstance]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>生成的<code>asset.json</code>内容如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;one&quot;: &#123;</span><br><span class="line">        &quot;js&quot;: &quot;/js/one_2bb80372ebe8047a68d4.bundle.js&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;two&quot;: &#123;</span><br><span class="line">        &quot;js&quot;: &quot;/js/two_2bb80372ebe8047a68d4.bundle.js&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/webpack/" rel="tag"># webpack</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/01/03/babel-polyfill-使用/" rel="next" title="babel polyfill 使用">
+                <i class="fa fa-chevron-left"></i> babel polyfill 使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/01/06/git-refs-详解/" rel="prev" title="git refs 详解">
+                git refs 详解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/01/04/webpack-常用plugin/"
+           data-title="webpack 常用plugin" data-url="http://yoursite.com/2017/01/04/webpack-常用plugin/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.png"
+               alt="陈春勇" />
+          <p class="site-author-name" itemprop="name">陈春勇</p>
+          <p class="site-description motion-element" itemprop="description">宽恕不会改变那个过去,却能开阔你的未来</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">19</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/chenchunyong" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/windavidking" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/chen-feng-xie" target="_blank" title="Zhihu">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Zhihu
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#webpack-常用plugin"><span class="nav-number">1.</span> <span class="nav-text">webpack 常用plugin</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DefinePlugin"><span class="nav-number">1.1.</span> <span class="nav-text">DefinePlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ExtractTextPlugin"><span class="nav-number">1.2.</span> <span class="nav-text">ExtractTextPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NoErrorsPlugin"><span class="nav-number">1.3.</span> <span class="nav-text">NoErrorsPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CommonsChunkPlugin"><span class="nav-number">1.4.</span> <span class="nav-text">CommonsChunkPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#DedupePlugin"><span class="nav-number">1.5.</span> <span class="nav-text">DedupePlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UglifyJsPlugin"><span class="nav-number">1.6.</span> <span class="nav-text">UglifyJsPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OccurenceOrderPlugin"><span class="nav-number">1.7.</span> <span class="nav-text">OccurenceOrderPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HotModuleReplacementPlugin"><span class="nav-number">1.8.</span> <span class="nav-text">HotModuleReplacementPlugin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HtmlWebpackPlugin"><span class="nav-number">1.9.</span> <span class="nav-text">HtmlWebpackPlugin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Configuration"><span class="nav-number">1.9.1.</span> <span class="nav-text">Configuration</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#assets-webpack-plugin"><span class="nav-number">1.10.</span> <span class="nav-text">assets-webpack-plugin</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">陈春勇</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"windavid"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
